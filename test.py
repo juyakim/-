@@ -129,4 +129,4 @@ while True:
     if ispdead:
         print("\n패배!!!")
         break
-    sleep(1)
+    sleep(1)                  #1초 일시정지
