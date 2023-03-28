@@ -10,9 +10,10 @@ class Character:
         self.max_hp = hp
         self.hp = hp
         self.power = power
-
+        
+#일반공격(랜덤값)
     def attack(self, other):
-        damage = random.randint(self.power - 2, self.power + 2)
+        damage = random.randint(self.power - 2, self.power + 2)            
         other.hp = max(other.hp - damage, 0)
         print(f"{self.name}의 질문공격! {other.name}에게 {damage}의 데미지를 입혔습니다.")
         if other.hp == 0:
@@ -20,7 +21,7 @@ class Character:
         else:
             print(f"{other.name}이(가) 뇌에 과부하가 걸렸습니다..")
 
-
+#마법공격
 class Player(Character):
     def magic(self, other):
         print(f"{self.name}이(가) {other.name}에게 주말반납요청!")
@@ -31,7 +32,7 @@ class Player(Character):
         else:
             print(f"{other.name}이(가) 더 이상 수업을 진행할 수 없습니다.")
 
-
+#몬스터의 
 class Monster(Character):
     def cure(self):
         self.hp = self.hp + 10
@@ -47,7 +48,7 @@ class Monster(Character):
 
 def createobjects():
     Warrior = Player('매니저님', 100, 10)
-    # 이름으로 해당 몬스터 인스턴스를 찾을 수 있도록, 딕셔너리 형태로 Monsters 를 묶어놓음
+   
     Monsters = {}
     Monsters['교육생1'] = Monster('교육생1', 10, 10)
     Monsters['교육생2'] = Monster('교육생2', 20, 20)
@@ -112,7 +113,7 @@ def check_pdead(Player):
     else:
         return False
 
-    # @title
+ #승리or 패배
 Warrior, Monsters = createobjects()
 
 while True:
