@@ -32,7 +32,7 @@ class Player(Character):
         else:
             print(f"{other.name}이(가) 더 이상 수업을 진행할 수 없습니다.")
 
-#몬스터의 
+#몬스터 대기 or회복
 class Monster(Character):
     def cure(self):
         self.hp = self.hp + 10
