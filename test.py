@@ -46,7 +46,7 @@ class Monster(Character):
 # 플레이어와 몬스터 스텟
 
 
-def createobjects():
+def createcharacter():
     Warrior = Player('매니저님', 100, 10)
    
     Monsters = {}
