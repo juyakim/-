@@ -41,7 +41,7 @@ class Monster(Character):
     def run(self):
         print(f"{self.name}이(가) 도망가다 잡혔습니다!")
 
-        # @title
+       
 
 # 플레이어와 몬스터 스텟
 
