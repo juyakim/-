@@ -10,10 +10,10 @@ class Character:
         self.max_hp = hp
         self.hp = hp
         self.power = power
-        
-#일반공격(랜덤값)
+
+# 일반공격(랜덤값)
     def attack(self, other):
-        damage = random.randint(self.power - 2, self.power + 2)            
+        damage = random.randint(self.power - 2, self.power + 2)
         other.hp = max(other.hp - damage, 0)
         print(f"{self.name}의 질문공격! {other.name}에게 {damage}의 데미지를 입혔습니다.")
         if other.hp == 0:
@@ -21,7 +21,9 @@ class Character:
         else:
             print(f"{other.name}이(가) 뇌에 과부하가 걸렸습니다..")
 
-#마법공격
+# 마법공격
+
+
 class Player(Character):
     def magic(self, other):
         print(f"{self.name}이(가) {other.name}에게 주말반납요청!")
@@ -32,7 +34,9 @@ class Player(Character):
         else:
             print(f"{other.name}이(가) 더 이상 수업을 진행할 수 없습니다.")
 
-#몬스터 대기 or회복
+# 몬스터 대기 or회복
+
+
 class Monster(Character):
     def cure(self):
         self.hp = self.hp + 10
@@ -41,14 +45,13 @@ class Monster(Character):
     def run(self):
         print(f"{self.name}이(가) 도망가다 잡혔습니다!")
 
-       
 
 # 플레이어와 몬스터 스텟
 
 
 def createcharacter():
     Warrior = Player('매니저님', 100, 10)
-   
+
     Monsters = {}
     Monsters['교육생1'] = Monster('교육생1', 10, 10)
     Monsters['교육생2'] = Monster('교육생2', 20, 20)
@@ -57,7 +60,7 @@ def createcharacter():
 
 
 # 플레이어와 몬스터의 상태확인
-def showinfo(self, other):
+def show_status(self, other):
     print("\n--------------수업 시작---------------")
     print(f"{self.name}의 상태: HP {self.hp}/{self.max_hp}")
     for key, other in Monsters.items():
@@ -113,11 +116,11 @@ def check_pdead(Player):
     else:
         return False
 
- #승리or 패배
-Warrior, Monsters = createobjects()
+ # 승리or 패배
+Warrior, Monsters = createcharacter()
 
 while True:
-    showinfo(Warrior, Monsters)
+    show_status(Warrior, Monsters)
     Monsters = playerturn(Warrior, Monsters)
     sleep(1)
     Monsters, ismdead = check_mdead(Monsters)
@@ -129,4 +132,4 @@ while True:
     if ispdead:
         print("\n패배!!!")
         break
-    sleep(1)                  #1초 일시정지
+    sleep(1)  # 1초 일시정지
